@@ -76,9 +76,6 @@ elif opcioniUP=="PRINTO":
     text=input()
     clientSocket.send(text.encode("ASCII"))
     print("rez :"+clientSocket.recv(1024).decode("ASCII"))
-    
-else:
-     konvertoServer()
 
 elif opcioniUP=="ZANORE":
     clientSocket.send(opcioniUP.encode("ASCII"))
