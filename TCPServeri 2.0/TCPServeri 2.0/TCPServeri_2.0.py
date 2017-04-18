@@ -294,8 +294,45 @@ def getMesatare():
     for n in range(20):
         shuma=shuma+keno[n]
     return shuma/20
-        
 
+#Metodat ekstra:Arsim Osmani     
+def nxitimi(v,vf,t):
+    a=(v-vf)/t
+    if vf<v:
+         a=(v-vf)/t
+         return("Kemi pershpejtim: a=%.2f" %a)
+    elif vf==0:
+         a=v/t
+         return("Nxitimi konstant: a=%.2f" %a)
+    else:
+         return("Nxitimi konstant")
+
+#Metodat ekstra:Arsim Osmani
+
+def reverse(text):
+    if len(text)<=1:
+        return text
+    return reverse(text[1:])+text[0]
+        
+#funksioni kalkulo - Ardison Molliqaj
+def kalkulo(opsioni, num1, num2):
+    if (opsioni =="MBLEDH"):
+        return num1 + num2
+    elif (opsioni == "ZBRIT"):
+        return num1 - num2
+    elif (opsioni == "SHUMEZO"):
+        return num1 * num2
+    elif (opsioni == "PJESTO"):
+        return num1 / num2
+
+#funksioni per konstanta - Ardison Molliqaj
+def konstantat(opsioni):
+    if (opsioni == "PI"):
+        return 3.1415
+    elif (opsioni == "E"):
+        return 2.71
+    elif (opsioni == "G"):
+        return 9.81
         
 
 mesazhiIP =str(getIP())
@@ -357,6 +394,17 @@ while 1:
     elif (inputi[0].upper()=="MESATARJAKENO"):
         strMesazhi=str("Mesatarja e numrave te rendomte "+str(getMesatare()))
         connectionSocket.send(strMesazhi.encode("ASCII"))
+    elif inputi[0] == "HELP":
+        helpi="Shembuj per inpute\n-----------------------\n ip\n port\n zanore fjala-fjalia\n host\n time\n keno\n faktoriel numri\n konverto njesia1TOnjesia2 numri (konverto CelsiusToKelvin 12)\n exchange valuta1-valuta2 sasia (exchange dollar-euro 100)\n transferimi opcioni(1-9) sasia shpejtesia (transferimi 1 20 20)\n Brishte Viti \n Primar Vlera maksiale \n Kuadratik a b c (ax^2+bx+c=0)\n MesatarjaKeno \n Nxitimi num1 num2 num3 \n Reverse teksti \n Kalkulo operacioni num1 num2 \n Konstantja emri\n----------------------\n"
+        connectionSocket.send(helpi.encode("ASCII"))
+    elif (inputi[0].upper()=="NXITIMI"):
+         connectionSocket.send(nxitimi(int(inputi[1]), int(inputi[2]), int(inputi[3])).encode("ASCII"))
+    elif (inputi[0].upper()=="REVERSE"):
+         connectionSocket.send(reverse(inputi[1]).encode("ASCII"))
+    elif (inputi[0].upper() == "KALKULO"):
+         connectionSocket.send(str(kalkulo(inputi[1], int(inputi[2]), int(inputi[3]))).encode("ASCII"))
+    elif (inputi[0].upper() == "KONSTANTA"):
+         connectionSocket.send(str(konstantat(inputi[1])).encode("ASCII"))
 
     else:
         connectionSocket.send(mesazhinull.encode('ASCII'))
