@@ -7,7 +7,7 @@ print("TCP Klienti")
 print("-----------------------\n")
 puna=True
 
-print("Zgjedh nje opcion :  \n IP \n PORT \n HOST \n KOHA  \n KENO  \n KONVERTO \n KALKULO \n KONSTANTA \n FAKTORIEL \n ZANORE \n PRINTO\n EXCHANGE\n TRANSFERIMI\n KUADRATIK(ax^2+bx+c=0) \n MESATARJAKENO(0-1000) \n PRIMAR (rangu i eperm) \n BRISHTE (viti) \n")
+print("Zgjedh nje opcion :  \n IP \n PORT \n HOST \n KOHA  \n KENO  \n KONVERTO \n KALKULO \n KONSTANTA \n FAKTORIEL \n ZANORE \n PRINTO\n EXCHANGE\n TRANSFERIMI\n KUADRATIK(ax^2+bx+c=0) \n MESATARJAKENO(0-1000) \n PRIMAR (rangu i eperm) \n BRISHTE (viti) \n NXITIMI \n REVERSE \n")
 print("-----------------------\n")
 
 
@@ -24,8 +24,6 @@ while puna:
 
     clientSocket.sendto(opcioni.encode('ASCII'),(serverName,serverPort))
     modifiedOpcioni,serverAddress = clientSocket.recvfrom(2048)
-    print("From Server: \n",modifiedOpcioni.decode('ASCII'))
+    print(modifiedOpcioni.decode('ASCII'))
 else:
     print("Programi u mbyll!")
-
- 
