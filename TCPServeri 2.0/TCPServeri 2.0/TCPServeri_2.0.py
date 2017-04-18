@@ -404,6 +404,9 @@ while 1:
     elif (inputi[0].upper() == "KALKULO"):
          connectionSocket.send(str(kalkulo(inputi[1], int(inputi[2]), int(inputi[3]))).encode("ASCII"))
     elif (inputi[0].upper() == "KONSTANTA"):
+         if (inputi[1] == "?"):
+             connectionSocket.send(("Zgjidhni nje nga konstantat me poshte: \n PI \n e \n G \n").encode("ASCII"))
+             continue
          connectionSocket.send(str(konstantat(inputi[1])).encode("ASCII"))
 
     else:
