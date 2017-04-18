@@ -397,7 +397,7 @@ while 1:
         strMesazhi=str("Mesatarja e numrave te rendomte "+str(getMesatare()))
         serverSocket.sendto(strMesazhi.encode("ASCII"),address)
     elif inputi[0] == "HELP":
-        helpi="Shembuj per inpute\n-----------------------\n ip\n port\n zanore fjala-fjalia\n host\n time\n keno\n faktoriel numri\n konverto njesia1->njesia2 numri (konverto CelsiusToKelvin 12)\n exchange valuta1-valuta2 sasia (exchange dollar-euro 100)\n transferimi opcioni(1-9) sasia shpejtesia (transferimi 1 20 20)\n Brishte Viti \n Primar Vlera maksiale \n Kuadratik a b c (ax^2+bx+c=0)\n MesatarjaKeno \n----------------------\n"  
+        helpi="Shembuj per inpute\n-----------------------\n ip\n port\n zanore fjala-fjalia\n host\n time\n keno\n faktoriel numri\n konverto njesia1TOnjesia2 numri (konverto CelsiusToKelvin 12)\n exchange valuta1-valuta2 sasia (exchange dollar-euro 100)\n transferimi opcioni(1-9) sasia shpejtesia (transferimi 1 20 20)\n Brishte Viti \n Primar Vlera maksiale \n Kuadratik a b c (ax^2+bx+c=0)\n MesatarjaKeno \n Nxitimi num1 num2 num3 \n Reverse teksti \n Kalkulo operacioni num1 num2 \n Konstantja emri\n----------------------\n"
         serverSocket.sendto(helpi.encode("ASCII"),address)
     elif (inputi[0].upper()=="NXITIMI"):
          serverSocket.sendto(nxitimi(int(inputi[1]), int(inputi[2]), int(inputi[3])).encode("ASCII"),address)
